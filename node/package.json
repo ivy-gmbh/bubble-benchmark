@@ -9,7 +9,7 @@
     "clean:gen": "rm -rf gen",
     "build": "npm run clean && npm run gen && tsc",
     "gen": "npm run gen:proto",
-    "gen:proto": "mkdir -p gen/grpc && protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_opt=outputServices=nice-grpc,outputServices=generic-definitions,useExactTypes=false,esModuleInterop=true,env=node,stringEnums=true --ts_proto_out=./gen/grpc --proto_path=../protos ../protos/sort.proto",
+    "gen:proto": "mkdir -p gen/grpc && protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_opt=outputServices=nice-grpc,outputServices=generic-definitions,useExactTypes=false,esModuleInterop=true,env=node,stringEnums=true --ts_proto_out=./gen/grpc --proto_path=../proto ../proto/sort.proto",
     "lint": "eslint --ext .ts --max-warnings 0 src/",
     "lint:fix": "npm run lint -- --fix",
     "start": "node dist/src/index.js",
