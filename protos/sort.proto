@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package sort.v1;
+
+service SortService {
+  rpc BubbleSort(list) returns (list) {}
+}
+
+message list {
+  repeated int32 data = 1;
+}
