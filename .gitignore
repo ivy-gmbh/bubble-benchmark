@@ -1,0 +1,48 @@
+.gradle
+.idea
+build
+.DS_Store
+*-account.json
+.env
+node_modules
+/core/src/main/grpc/com/ivy/generated
+/core/src/main/grpckt/com/ivy/generated
+/core/src/main/java/com/ivy/generated
+/core/src/main/kotlin/com/ivy/generated
+*.code-workspace
+
+# TERRAFORM
+
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+**/*.tfstate
+**/*.tfstate.backup
+
+# .tfvars files are likely to contain sensitive data
+**/*.tfvars
+**/*.tfvars.json
+
+# They are usually used to override resources locally
+**/override.tf
+**/override.tf.json
+**/*_override.tf
+**/*_override.tf.json
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+# Lockfile
+**/.terraform.lock.hcl
+
+# Turborepo
+.turbo
+
+# build artifacts
+dist
+gen
+
+# intellij fleet
+**/.fleet
