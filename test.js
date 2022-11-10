@@ -2,7 +2,7 @@ import grpc from 'k6/net/grpc';
 import {check, sleep} from 'k6';
 
 const client = new grpc.Client();
-client.load(['protos'], 'sort.proto');
+client.load(['proto'], 'sort.proto');
 
 export default () => {
   client.connect('0.0.0.0:8000', {
