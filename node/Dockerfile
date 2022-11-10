@@ -5,7 +5,7 @@ WORKDIR /app
 COPY node/package*.json ./
 RUN npm ci
 
-COPY ./protos/ ./protos/
+COPY ./proto/ ./proto/
 COPY ./node/ ./node/
 
 WORKDIR /app/node
