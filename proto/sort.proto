@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package sort.v1;
 
+option go_package = "sort.v1";
+
 service SortService {
   rpc BubbleSort(list) returns (list) {}
 }
