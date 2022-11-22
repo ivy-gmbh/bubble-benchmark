@@ -43,7 +43,7 @@ terraform.rc
 # build artifacts
 dist
 gen
+target
 
 # intellij fleet
 **/.fleet
-/rust/target

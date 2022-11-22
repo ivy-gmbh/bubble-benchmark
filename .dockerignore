@@ -1,0 +1,7 @@
+# build artifacts
+**/dist
+**/gen
+**/target
+
+# build artifacts
+**/node_modules

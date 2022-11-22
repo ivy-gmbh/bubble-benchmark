@@ -13,3 +13,9 @@ Start the server with:
 ```
 go run main.go
 ```
+
+Build the app with:
+
+```
+RUN go build -o ./dist/bubblesort
+```
