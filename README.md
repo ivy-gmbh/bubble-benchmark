@@ -4,7 +4,7 @@ Collection of similar bubblesort server implementations used to compare tech.
 
 ## Test:
 
-250 concurent users making requests to bubble sort a list of 1000 positive 32bit integers with a slack time of 100ms between requests.
+250 concurent users over 10 minutes making requests to bubble sort a list of 1000 positive 32bit integers with a slack time of 100ms between requests.
 
 The servers were deployed to GCP Cloud Run with the following spec:
 
@@ -49,3 +49,19 @@ spec:
 | cold_start         | p(50)=125.14ms p(95)=130.5ms p(99)=130.98ms                               |
 | memory_utilization | p(50)=1.5% p(95)=1.95% p(99)=1.99%                                        |
 | cpu_utilization    | p(50)=70.5% p(95)=70.95% p(99)=70.99%                                     |
+
+## Development
+
+### Docker
+
+```
+docker build -t europe-west1-docker.pkg.dev/ivy-access/registry/bubble-node -f node/Dockerfile .
+docker build -t europe-west1-docker.pkg.dev/ivy-access/registry/bubble-rust -f rust/Dockerfile .
+docker build -t europe-west1-docker.pkg.dev/ivy-access/registry/bubble-go -f go/Dockerfile .
+```
+
+### Executing the test
+
+```
+k6 run --vus 250 --duration 600s test.js
+```

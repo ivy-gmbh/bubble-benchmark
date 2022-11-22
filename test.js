@@ -5,11 +5,12 @@ const client = new grpc.Client();
 client.load(['proto'], 'sort.proto');
 
 export default () => {
-  client.connect('0.0.0.0:8000', {
-    plaintext: true,
-  });
-  // client.connect('bubble-rust-xmfhw3djgq-ew.a.run.app:443');
+  // client.connect('0.0.0.0:8000', {
+  //   plaintext: true,
+  // });
+  client.connect('bubble-rust-xmfhw3djgq-ew.a.run.app:443');
   // client.connect('bubble-node-xmfhw3djgq-ew.a.run.app:443');
+  // client.connect('bubble-go-xmfhw3djgq-ew.a.run.app:443');
 
   const response = client.invoke('sort.v1.SortService/BubbleSort', {
     data: [
