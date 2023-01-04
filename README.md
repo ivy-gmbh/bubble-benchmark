@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       annotations:
-        autoscaling.knative.dev/maxScale: '1'
+        autoscaling.knative.dev/maxScale: "1"
     spec:
       containerConcurrency: 80
       timeoutSeconds: 300
@@ -62,6 +62,8 @@ docker build -t europe-west1-docker.pkg.dev/ivy-access/registry/bubble-go -f go/
 
 ### Executing the test
 
+Set the TEST_SERVICE value to rust/node/go to select the respective service.
+
 ```
-k6 run --vus 250 --duration 600s test.js
+k6 run -e TEST_SERVICE=<rust|node|go> --vus 250 --duration 600s test.js
 ```
