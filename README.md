@@ -52,7 +52,7 @@ spec:
 
 ## Development
 
-### Docker
+### Docker test services
 
 ```
 docker build -t europe-west1-docker.pkg.dev/ivy-access/registry/bubble-node -f node/Dockerfile .
@@ -60,9 +60,17 @@ docker build -t europe-west1-docker.pkg.dev/ivy-access/registry/bubble-rust -f r
 docker build -t europe-west1-docker.pkg.dev/ivy-access/registry/bubble-go -f go/Dockerfile .
 ```
 
+### Docker client
+
+Set the environemnt variable TEST_SERVICE to rust/node/go.
+
+```
+docker build -t europe-west1-docker.pkg.dev/ivy-access/registry/bubble-client -f Dockerfile .
+```
+
 ### Executing the test
 
-Set the TEST_SERVICE value to rust/node/go to select the respective service.
+Set the -e TEST_SERVICE value to rust/node/go to select the respective service.
 
 ```
 k6 run -e TEST_SERVICE=<rust|node|go> --vus 250 --duration 600s test.js
