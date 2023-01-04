@@ -1,16 +1,32 @@
 import grpc from 'k6/net/grpc';
 import {check, sleep} from 'k6';
 
+const testService = __ENV.TEST_SERVICE;
+const availableServices = ['rust','node','go'];
+
+if (!testService) {
+  throw new Error('TEST_SERVICE environment variable not set.');
+}
+
+if (!availableServices.includes(testService)) {
+  throw new Error('Invalid TEST_SERVICE environment variable value.');
+}
+
 const client = new grpc.Client();
 client.load(['proto'], 'sort.proto');
 
 export default () => {
-  // client.connect('0.0.0.0:8000', {
-  //   plaintext: true,
-  // });
-  client.connect('bubble-rust-xmfhw3djgq-ew.a.run.app:443');
-  // client.connect('bubble-node-xmfhw3djgq-ew.a.run.app:443');
-  // client.connect('bubble-go-xmfhw3djgq-ew.a.run.app:443');
+  switch(testService) {
+    case 'rust':
+      client.connect('bubble-rust-xmfhw3djgq-ew.a.run.app:443');
+      break;
+    case 'node':
+      client.connect('bubble-node-xmfhw3djgq-ew.a.run.app:443');
+      break;
+    case 'go':
+      client.connect('bubble-go-xmfhw3djgq-ew.a.run.app:443');
+      break;
+  }
 
   const response = client.invoke('sort.v1.SortService/BubbleSort', {
     data: [
