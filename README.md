@@ -26,7 +26,7 @@ spec:
             memory: 512Mi
 ```
 
-The client was ran as a Google Cloud Run Job with 2GB memory & 4 CPUs allocated.
+The client was ran as a Google Cloud Run Job with 2GB memory & 4 CPUs allocated for 600s.
 
 ## Results:
 
