@@ -2,6 +2,8 @@
 
 Collection of similar bubblesort server implementations used to compare tech.
 
+This project was the result of one of Ivy's regular Hackdays. We wanted to have actual numbers to use in our discussions of different languages and frameworks we are interesting in using. We created implimentations in different languages based on a protobuf service. The service sorts a list of 32bit integers and returns the result. We use the same list of numbers for each test.
+
 ## Test:
 
 250 concurent users over 10 minutes making requests to bubble sort a list of 1000 positive 32bit integers with a slack time of 100ms between requests.
@@ -13,7 +15,7 @@ spec:
   template:
     metadata:
       annotations:
-        autoscaling.knative.dev/maxScale: "1"
+        autoscaling.knative.dev/maxScale: '1'
     spec:
       containerConcurrency: 80
       timeoutSeconds: 300
